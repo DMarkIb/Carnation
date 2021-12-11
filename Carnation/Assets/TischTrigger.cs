@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+public class TischTrigger : MonoBehaviour
 {
     public Camera cam1;
     public Camera maincam;
@@ -51,7 +51,7 @@ public class Trigger : MonoBehaviour
 
         if (doppelklick)
         {
-            if (Vector3.Distance(Spieler.transform.position, transform.position) <= 1f && !Wimmelbild)
+            if (Vector3.Distance(Spieler.transform.position, transform.position) <= 3f && !Wimmelbild)
             {
                 Player.SetBool("Interaction", true);
                 GameObject.Find("Spielfigur").GetComponent<Spielfigur>().enabled = false;
@@ -59,6 +59,7 @@ public class Trigger : MonoBehaviour
                 StartCoroutine(waiter());
 
             }
+
 
             doppelklick = false;
         }
